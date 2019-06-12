@@ -45,6 +45,58 @@ print(string2 * 10)
 # 判断字符是否存在于序列当中， 返回布尔值类型，如果存在返回True，不存在返回False
 print('a' in string1)
 print('a' in string2)
+
+# 6.将'hello world' 转换为首字母大写'Hello World'
+arr = 'hello world'.split()
+new_arr = f'{arr[0].capitalize(),arr[1].capitalize()}'
+print(new_arr)
+
+# 7.如何检测字符串中只含有数字？
+s1 = '12223'.isdigit()
+print(s1)
+s2 = 'q22u3eu'.isdigit()
+print(s2)
+
+结果如下：
+# True
+# False
+
+# 8. 将字符串'ilovechina'进行反转
+s1 = 'ilovechina'[::-1]
+print(s1)
+
+# 9.Python中的字符串格式化方式你知道哪些？
+答： %s , format ，fstring(python3.6 开始才主持，现在推荐的写法）
+
+# 10. 有一个字符串开头和末尾都有空格，比如' adabdw ',要求写一个函数把这个字符串的前后空格都去掉
+答：因为题目是要写一个函数，所以我们不能直接使用strip,不过我们可以把它封装到函数啊
+
+  def strip_function(s):
+       return s.strip()
+   s1 = ' adabdw '
+   print(strip_function(s1))
+   
+# 11. 获取字符串'123456'最后的两个字符
+a = '123456'
+print(a[-2:])  或者 print(a[-2::]) 
+
+# 12. 一个编码为GBK的字符串S，要将其转成UTF-8编码的字符串，应如何操作？
+ a = 'S'.encode('gbk').decode('utf-8')
+ print(a)
+ 
+# 13. (1) s= 'info: xiaoZhang 33 shandong' ，用正则切分字符串输出['info','xiaoZhang','33','shandong']
+     （2） a = '你好     中国',去除多余空格只留一个空格
+ 答：    
+     （1）我们需要根据冒号或者空格切分
+     import re
+     s= 'info: xiaoZhang 33 shandong'
+     res = re.split(r':| ',s)
+     print(res）
+     
+     （2）
+     a = '你好     中国'
+     print(' '.join(a.split()))
+
 ```
 
 
@@ -71,11 +123,31 @@ print(list1[0:3])
 # 注意取出最后一个元素的类型为整型
 print(list1[-1])
 
+# 5. 如何打乱列表的元素
+import random
+a = [1,2,3,4,5]
+random.shuffle(a)
+print(a)
+
+# 6. 已知AList = [1,2,3,1,2],对 AList 列表去重
+list(set(AList))
+
+# 7. 如何实现'1,2,3' 变成['1','2','3']
+'1,2,3'.split(',')
+
+# 8.给定两个list ,A 和 B，找出相同元素和不同元素
+相同元素： print(set(A) & set(B))
+不同元素： print(set(A) ^ set(B))
+
+# 9. [[1,2],[3,4],[5,6]] 一行代码展开该列表，得出[1,2,3,4,5,6]
+l = [[1,2],[3,4],[5,6]]
+l1 = [II for I in l for II in I]
+
+# 10. 合并列表[1,5,7,9] 和 [2,2,6,8]
+c = [1,5,7,9].extend([2,2,6,8])
+或者c = [1,5,7,9] + [2,2,6,8]
+
 ```
-
-
-
-
 
 # 练习四 元组的基本操作
 
