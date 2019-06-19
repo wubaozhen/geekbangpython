@@ -47,9 +47,21 @@ print({**a,**b})
 # 7. 如何使用生成式的方式生成一个字典，写一段功能代码
 答：
 
-# 8.把字典的key和value值掉换
+# 8.1把字典的key和value值掉换
 d = {'a':1,'b':2}
 print({v:k for k,v in d.items()})
+
+# 8.2 把字典的值换成键的大写字母
+>>>d = {'a':'apple','b':'bob','c':'cat'}
+>>>{k:k.upper() for k,v in d.items()}
+>>>{'a': 'A', 'b': 'B', 'c': 'C'}
+
+# 8.3 大小写合并，key值最终为小写
+>>>d1 = {'A':10,'b':3,'a':5,'B':8,'d':1}
+>>>{k.lower():d1.get(k.upper(),0) + d1.get(k.lower(),0) for k,v in d1.items()}
+>>>{'a': 15, 'b': 11, 'd': 1}
+注： d.get(key,[default]) 如何key存在，即返回对应的值，不存在则返回default
+
 
 # 9.如何把元组('a','b') 和元组（1,2）变成字典{'a':1,'b':2}
 >>>t1= ('a','b')
