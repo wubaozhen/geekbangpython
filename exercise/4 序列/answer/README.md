@@ -150,15 +150,15 @@ c = [1,5,7,9].extend([2,2,6,8])
 ```
 
 # 列表推导式
-1.#将字符串以空格区分，转换成列表
-## 常规方法
+1.将字符串以空格区分，转换成列表
+#### 常规方法
 s = '51 5000 10000'
 li = []
 for item in s.split():
     li.append(int(item))
 k,a,b = li
 print(k,a,b)
-## 列表推导式
+#### 列表推导式
 k,a,b = [int(item) for item in s.split()]
 print(k,a,b)
 
