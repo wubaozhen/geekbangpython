@@ -37,6 +37,20 @@ def func3(*nums):
 
 func3(1, 5, 8, 32, 654, 765, 4, 6, 7)
 
+我的答案：
+def Fun():
+    num = input('传入整数用，分隔:').split(',')
+    maxN = max(num)
+    minN = min(num)
+
+    return maxN,minN
+
+maxN , minN = Fun()
+print('最大的数为%s,最小的数为%s' % (maxN,minN))
+
+注：对比参考答案，貌似我误解意思了，题目是要求函数传入参数
+
+
 
 # 3. 创建一个函数，传入一个参数n，返回n的阶乘
 
