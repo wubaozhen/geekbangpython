@@ -274,4 +274,30 @@ print(len(tuple1))
 print(tuple1.__len__())
 ```
 
+# 练习五 数据类型-综合
+```
+# 1. 如何交换字典{"A":1,"B":2}的键和值
+d = {"A":1,"B":2}
+方法一：dict_new = {value:key for key,value in d.items}
+方法二：dict(zip(d.values(),d.keys()))
+
+# 2. Python里面如何实现tuple和list的转换？
+答：一般通过类型强制转即可,tuple转list是list()方法   list转tuple使用tuple()方法
+
+# 3.我们知道对于列表可以使用切片操作进行部分元素的选择，那么如何对生成器类型的对象实现相同的功能呢？  **************************
+from itertools import islice
+gen = iter(range(10))  # iter()函数用来生成迭代器
+#第一个参数是迭代器，第二个参数起始索引，第三个参数结束索引，不支持负数索引
+for i  in  islice(gen,0,4):
+    print(i)
+    
+# 4.请将[i for i in range(3)]改成生成器
+(i for i in range(3))
+
+# 5. a='hello' 和 b="你好" 编码成bytes类型
+有三种方法,a b c 代表三种方法
+a=b'hello'
+b=bytes('你好','utf-8')
+c='你好'.encode('utf-8')
+
 
