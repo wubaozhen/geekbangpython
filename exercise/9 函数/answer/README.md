@@ -15,7 +15,7 @@ def func2(check_number):
 
 func1()
 
-我的答案：
+#我的答案：
 def Fsum():
     # 转换成列表，类似['1','2']
     args = input('请输入数字并用，分隔：').split(',')
@@ -37,7 +37,7 @@ def func3(*nums):
 
 func3(1, 5, 8, 32, 654, 765, 4, 6, 7)
 
-我的答案：
+#我的答案：
 def Fun():
     num = input('传入整数用，分隔:').split(',')
     maxN = max(num)
@@ -69,6 +69,15 @@ print(fact(10))
 from functools import reduce
 num4 = 10
 print(reduce(lambda x, y: x * y, range(1, num4 + 1)))
+
+# 我的答案：
+def Fun(n):
+    ret = 1
+    for i in range(n,0,-1):
+        ret *= i
+    print(ret)
+
+Fun(5)
 
 ```
 
