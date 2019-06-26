@@ -15,6 +15,17 @@ def func2(check_number):
 
 func1()
 
+我的答案：
+def Fsum():
+    # 转换成列表，类似['1','2']
+    args = input('请输入数字并用，分隔：').split(',')
+    # 因字符串类型不能用于求和，于是转成int()
+    args = [int(i) for i in args]
+    ret = sum(args)
+    print(ret)
+
+Fsum()
+
 
 # 2. 创建一个函数，传入n个整数，返回其中最大的数和最小的数
 
