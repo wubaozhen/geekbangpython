@@ -79,5 +79,47 @@ def Fun(n):
 
 Fun(5)
 
+# 4. 如果当前的日期为20190530，要求写一个函数输出N天后的日期，（比如N为2，则输出20190601）
+import datetime
+def Fun(n:int):
+    now = datetime.datetime.now() # 获取当前时间
+    delta = datetime.timedelta(days=n) # 获取指定天数后的新日期
+    n_days = now + delta
+    return n_days
+
+if __name__ ==  '__main__':
+    print(Fun(2))
+    
+# 5. 写一个函数，接收整数参数n,返回一个函数，函数的功能是把函数的参数和n相乘并把结果返回
+此题考查的是闭包，闭包返回函数对象，在内部函数调用外部函数的变量
+def OutFun(n):
+    def InFun(i):
+        return i * n
+    return InFun
+
+F = OutFun(8)
+print(F(5))
+
+# 6. 下面代码会存在什么问题，如何改进？
+
+def strappend(num):
+    str='first'
+    for i in range(num):
+        str+=str(i)
+    return str
+
+改进后：
+def str_append(num):
+    s = 'first'
+    for i in range(num):
+        s += str(i)
+        yield s
+if __name__ == '__main__':
+    for i in str_append(3):
+        print(i)
+
+1.函数名用_连接单词
+2.不要用内置函数名作为变量名
+3.str是不可变对象，每次迭代都会生成新的内存空间，num越大，创建的str对象就会越多，内存消耗越大，使用yield改成生成器即可
 ```
 
