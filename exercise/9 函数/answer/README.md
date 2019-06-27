@@ -121,5 +121,32 @@ if __name__ == '__main__':
 1.函数名用_连接单词
 2.不要用内置函数名作为变量名
 3.str是不可变对象，每次迭代都会生成新的内存空间，num越大，创建的str对象就会越多，内存消耗越大，使用yield改成生成器即可
+
+# 7.一行代码输出1-100之间的所有偶数
+
+print([i for i in range(2,101,2)])
+print([i for i in range(2,101) if not i%2])
+print([i for i in range(2,101) if i & 0x1 == 0])  # 这是新方法，&不好理解
+
+# 8. 请写一个Python逻辑，计算一个文件中的大写字母数量
+# 我的答案：
+with open('1.txt','r') as f:
+    txt = f.read()
+
+count = 0
+for i in txt:
+    if i.isupper():
+        count += 1
+print(count)
+
+# 参考答案
+with open('1.txt') as fs:
+    count = 0
+    for i in fs.read():
+        if i.isupper():
+            count += 1
+print(count)
+
+注：可以省txt变量，其次把for写在with里面
 ```
 
