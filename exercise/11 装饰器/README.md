@@ -34,4 +34,4 @@ def multi(x,y):
 如上：脚本执行会打印2行 in register,说明程序走到@register，会执行register函数
 
 如果在脚本最后加上add(),且把ret = fn(*args,**kwargs) 和 print ret注调，那么程序会打印2行in register 和 in wrap,说明此时执行的是wrap函数
-如果在脚本最后加上add(1,2),且把注掉的打开，则会打印5
+如果在脚本最后加上add(1,2),且把注掉的打开，则会打印in add 和 5，说明此时才执行了add函数
