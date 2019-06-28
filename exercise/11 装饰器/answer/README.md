@@ -65,5 +65,42 @@ def make_color(code):
 @make_color(33)
 def fmta(s):
     return '{:^7}'.format(str(float(s) * 1000)[:5] + 'ms')
+    
+# 练习三 写一个命令分发器
+import functools
+
+d_fun = {}
+
+def register(fn):
+    d_fun.update({fn.__name__: fn})  # 键为函数名，值为函数对象
+    @functools.wraps(fn)
+    def wrap(*args,**kwargs):
+        ret = fn(*args,**kwargs)
+        return ret
+    return wrap
+
+
+@register
+def add(x,y):
+    return x + y
+
+@register
+def multi(x,y):
+    return x * y
+
+def cmd():
+    print('输入exit将退出程序')
+    while True:
+        fun = input('>>输入指令：')
+        if fun == 'exit':
+            break
+        if fun in d_fun:
+            args = input('>>输入参数：').split()
+            t = [int(x) for x in args]
+            print('>>结果：',d_fun[fun](*t))  # *t解包
+        else:
+            print('没有此条命令')
+
+cmd()
 
 ```
