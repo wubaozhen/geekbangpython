@@ -148,5 +148,47 @@ with open('1.txt') as fs:
 print(count)
 
 注：可以省txt变量，其次把for写在with里面
+
+# 9. 编写程序，生成包含1000个0到100之间的随机整数，并统计每个元素出现次数
+import random
+L = []
+for i in range(1000):
+     L.append(random.randint(0, 100))  # randint(上限，下限)
+
+print(L)
+
+# 字典，键为元素：值为次数
+d = {}
+for i in L:
+    if i in d:
+        d[i] += 1
+    else:
+        d[i] = 1
+
+print(d)
+
+# d的值加起来应该为1000
+d_values = [v for v in d.values()] # 获取字典的值，形成一个列表
+print(sum(d_values))
+
+d_keys = [k for k in d.keys()]
+print(sorted(d_keys))  # 将列表的键排序
+
+# 参考答案：集合
+import random
+x = [random.randint(0,100) for i in range(1000)]  # 列表推导式
+
+d = set(x)
+for v in d:
+    print(v,':',x.count(v))
+    
+参考答案：字典
+import random
+x = [random.randint(0,100) for i in range(1000)]
+
+d = dict()
+for i in x:
+    d[i] = d.get(i,0) + 1  # 
+
 ```
 
