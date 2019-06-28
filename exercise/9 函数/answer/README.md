@@ -188,7 +188,7 @@ x = [random.randint(0,100) for i in range(1000)]
 
 d = dict()
 for i in x:
-    d[i] = d.get(i,0) + 1  # 
+    d[i] = d.get(i,0) + 1  # d.get(key,[default)]:如果key存在，则返回key对应的值，如不存在，则返回default
 
 ```
 
