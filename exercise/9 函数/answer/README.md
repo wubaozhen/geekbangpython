@@ -189,6 +189,23 @@ x = [random.randint(0,100) for i in range(1000)]
 d = dict()
 for i in x:
     d[i] = d.get(i,0) + 1  # d.get(key,[default)]:如果key存在，则返回key对应的值，如不存在，则返回default
+    
+# 写一个函数，实现列表的切片功能,例如用户输入[1,2,3,4,5,6]和2,5，程序输出[3,4,5,6]
 
+#我的答案：
+def slice():
+    l = [int(i) for i in input('请输入一个列表:').split(',')]  # 得到一个整数列表
+    n1,n2 = [int(i) for i in input('请输入2个整数作为起始和结束下标:').split(',')]  # 得到2个整数下标
+    for i in range(len(l)):
+        if  n1 <= i <= n2:
+            print(l[i],end='')
+
+slice()
+
+# 参考答案： eval
+x = input('Please input a list:')
+x = eval(x)
+start,end = eval(input('Please input the start position and the end position:'))
+print(x[start:end+1])
 ```
 
