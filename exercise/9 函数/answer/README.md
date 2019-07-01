@@ -287,5 +287,41 @@ def insertList(L1,x):
             break
     return
 
+# 编写函数，生成包含20个随机数的列表，然后将前10个元素升序排列，后10个元素降序排列，并输出结果
+
+
+
+
+# 参考答案：
+import random
+def l():
+    L = [random.randint(1,100) for _ in range(20)]
+
+    for i in range(10):
+        for j in range(9,i,-1):
+            if L[j-1] > L[j]:
+                L[j-1],L[j] = L[j],L[j-1]
+
+    for i in range(10,20):
+        for j in range(19,i,-1):
+            if L[j-1] < L[j]:
+                L[j-1], L[j] = L[j], L[j-1]
+
+    return L
+
+print(l())
+
+#我的答案： sorted()
+import random
+def l():
+    L = [random.randint(1,100) for _ in range(20)]
+
+    L1 = L[:10]
+    L2 = L[10:20]
+    L = sorted(L1) + sorted(L2,reverse=True)
+
+    return L
+
+print(l())
 ```
 
