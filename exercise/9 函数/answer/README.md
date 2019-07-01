@@ -227,6 +227,58 @@ for i in range(5):
     print(i)
 else:
     print('in else')
+    
+# 主程序中已有一个排好序的列表，请编写函数insertList，将从键盘接收的整数按原来从小到大的顺序规律插入到该列表中
+def insertList(L1,x):
+    '''
+    思路：首先想到的二分法，用列表居中的元素跟这个值比，这样就把目标缩小了一半。然后对新的列表再二分，直到最后的列表
+    元素个数为2个或1个
+    :param L1:
+    :param x:
+    :return:
+    '''
+    L2 = L1[:]  # 复制一个L1
+    lenth = len(L2)
+    # 条件设置大于2是因为，当L2只有2个元素时，就得到了临界元素
+    while lenth > 2:
+        if lenth%2 == 0:
+            mid = int(len(L2) / 2) -1
+        else:
+            mid = int(len(L2) / 2)
+        if L2[mid] < x:
+            L2 = L2[mid+1:]
+        else:
+            L2 = L2[:mid]
+
+        lenth = len(L2)
+    # 找出临界元素在元列表的索引位置，再用insert()
+    inx = L1.index(L2[0])
+    if L2[0] < x:
+       L1.insert(inx+1,x)
+    else:
+       L1.insert(inx,x)
+
+
+L1 = [1, 4, 6, 9, 16, 28, 40, 100]
+x = int(input('请输入一个要插入的整数：'))
+insertList(L1,x)
+print(L1)
+
+# 参考答案：
+def insertList(L1,x):
+    lenth = len(L1)
+    if x > L1[lenth -1]:
+        L1.append(x)
+        return  # return 相当于退出函数
+
+    for i in range(lenth):
+        if x < L1[i]:
+            L1.insert(i,x)
+            break
+    return
+备注：
+1.明显比我的代码简洁很多
+2.要善于利用题目本身的优势：a,已经是一个排好序的列表，所以可以先跟最大一个比；b,因为已经是一个排好序的列表，所以找到小的那个就可以退出循环了
 
 ```
 
