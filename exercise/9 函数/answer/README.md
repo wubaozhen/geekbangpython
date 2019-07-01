@@ -207,5 +207,26 @@ x = input('Please input a list:')
 x = eval(x)
 start,end = eval(input('Please input the start position and the end position:'))
 print(x[start:end+1])
+
+# 写一判素数的函数，在主函数中输入一个整数，调用该函数进行判断并输出结果
+import math
+def isPrime(n):
+    for i in range(2,int(math.sqrt(n))+1):
+        if not n%i:
+            print('%d 不是素数' % n)
+            break
+    else: # else代表for循环走完了
+        print('%d 是素数' % n)
+
+if __name__ == '__main__':
+    n = 5
+    isPrime(n)
+
+# 另一个例子  for ... else ...
+for i in range(5):
+    print(i)
+else:
+    print('in else')
+
 ```
 
