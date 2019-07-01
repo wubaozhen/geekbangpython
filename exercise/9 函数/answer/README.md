@@ -280,5 +280,12 @@ def insertList(L1,x):
 1.明显比我的代码简洁很多
 2.要善于利用题目本身的优势：a,已经是一个排好序的列表，所以可以先跟最大一个比；b,因为已经是一个排好序的列表，所以找到小的那个就可以退出循环了
 
+    for i in L1:
+        if x < i:
+            index = L1.index(i)
+            L1.insert(index,x)
+            break
+    return
+
 ```
 
