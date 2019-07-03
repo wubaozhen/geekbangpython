@@ -323,5 +323,49 @@ def l():
     return L
 
 print(l())
+
+# 编写函数，模拟内置函数sum()
+
+def fsum(L):
+    ret = 0
+    for i in L:
+        ret += i
+    return ret
+
+L = [1,2,3,4,5,6,7,8,9]
+ret = fsum(L)
+print(ret)
+
+# 编写函数，模拟内置函数sorted()
+
+思路：利用比较相邻两元素的大小
+def fsorted(L):
+    newL = L[:]
+    lenth = len(L)
+    for i in range(lenth):
+       for j in range(lenth-1,i,-1):
+           if newL[j-1] > newL[j]:
+               newL[j-1],newL[j] = newL[j],newL[j-1]
+
+    return newL
+
+L = [9,8,7,6,5,4,3,2,1]
+ret = fsorted(L)
+print(ret)
+
+# 参考答案：
+思路：利用min()函数找到最小的，然后append到另外一个列表，当前列表再删掉这个最小的
+def fsorted(v):
+    t = v[::]
+    r = []
+    while t:
+        tt = min(t)
+        r.append(tt)
+        t.remove(tt)
+    return r
+
+v = [9,8,7,6,5,4,3,2,1]
+ret = fsorted(v)
+print(ret)
 ```
 
