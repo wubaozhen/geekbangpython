@@ -289,9 +289,6 @@ def insertList(L1,x):
 
 # 编写函数，生成包含20个随机数的列表，然后将前10个元素升序排列，后10个元素降序排列，并输出结果
 
-
-
-
 # 参考答案：
 import random
 def l():
@@ -323,6 +320,30 @@ def l():
     return L
 
 print(l())
+
+# 编写程序，生成一个包含20个随机整数的列表，然后对其中偶数下标的元素进行降序排列，奇数下标的元素不变
+
+# 我的答案：
+import random
+
+L = [random.randint(1,100) for _ in range(20)]
+print(L)
+for i in range(0,20,2):
+    for j in range(18,i,-2):  # 这里开始定18是因为最后一个偶数下标为18
+        if L[j-2] < L[j]:
+            L[j-2],L[j] = L[j],L[j-2]
+
+print(L)
+
+# 参考答案
+import random
+
+L = [random.randint(1,100) for _ in range(20)]
+
+L1 = L[::2]
+L1.sort(reverse=True)
+L[::2] = L1
+print(L)
 
 # 编写函数，模拟内置函数sum()
 
@@ -367,5 +388,62 @@ def fsorted(v):
 v = [9,8,7,6,5,4,3,2,1]
 ret = fsorted(v)
 print(ret)
+
+# 假设有一个英文文本文件，编写程序读取其内容，并将其中的大写字母变为小写字母，小写字母变成大写字母
+# 参考答案：
+with open('res.txt','r') as f:
+    s = f.readlines()
+
+r = [i.swapcase() for i in s]
+
+with open('res.txt','w') as f:
+    f.writelines(r)
+    
+# 我的答案：
+with open('res.txt','r') as f:
+    text = f.read()
+
+print(text.swapcase())
+
+# 编写程序，生成一个包含50个随机整数的列表，然后删除其中所有奇数
+
+# 我的答案：
+import random
+
+L = [random.randint(1,500) for _ in range(50)]
+for i in L:
+    if i%2:
+        L.remove(i)
+print(L)
+
+# 参考答案：从后往前删
+import random
+
+L = [random.randint(1,500) for _ in range(50)]
+
+i = len(L) -1
+while i>=0:
+    if L[i]%2:
+        del L[i]
+    i -= 1
+
+print(L)
+
+# 编写程序，将包含学生成绩的字典保存为二进制文件，然后再读取内容并显示
+
+import pickle
+
+# 保存为二进制文件
+data = {'张三':89,'李四':56,'王五':70}
+with open('res.pk','wb') as f:
+    pickle.dump(data,f)
+
+
+#读取出来
+with open('res.pk','rb') as f:
+    data1 = pickle.load(f)
+print(data1)
+
+
 ```
 
