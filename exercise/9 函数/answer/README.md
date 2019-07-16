@@ -483,5 +483,39 @@ print(Sn)
 3.参考答案看着舒服，我的太丑了。。。
 4.参考答案很高级的用了reduce(func,iterable)函数，
 
+# 编写程序：问题简述：假设一支皮球从100米高度自由落下。条件，每次落地后反跳回原高度的一半后，再落下。
+
+要求：算出这支皮球，在它在第10次落地时，共经过多少米？第10次反弹多高？
+
+# 我的答案：
+n = 100
+t = 10
+l = []  # 初始化
+while t > 0:
+   temp = round(n/2,1)  # 保留一位小数
+   l.append(temp)
+   n = temp
+   t -= 1
+
+for i,v in enumerate(l,1): # 1表示索引从1开始
+    if i == 10:
+        print('第10次反弹%f' % v)
+
+print(sum(l)) # 第10次落地，共经过的米数
+
+# 参考答案：
+Sn = 100.0
+Hn = Sn/2
+
+for n in range(2,11):  # 循环9次
+    Sn += 2*Hn  # 这里乘2代表反弹掉落
+    Hn /= 2
+
+print('Total of road is %f' %Sn)
+print('The tenth is %f meter' % Hn)
+
+
+# 注：
+1 用range()限定循环次数，都省了判断if i == 10:,得到结论，知道循环几次的情况下就用range
 ```
 
