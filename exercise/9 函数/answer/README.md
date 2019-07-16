@@ -444,6 +444,44 @@ with open('res.pk','rb') as f:
     data1 = pickle.load(f)
 print(data1)
 
+# 编写程序，问题描述：
+求这样的一组数据和，s=a+aa+aaa+aaaa+aa...a的值，其中a是一个数字；
+例如：2+22+222+2222+22222(此时共有5个数相加)，这里具体是由几个数相加，由键盘控制
+
+#我的答案：
+n = int(input('请输入数字：'))
+c = int(input('请输入数字最大的重复次数：'))
+
+l = []
+l.append(n)
+n1 = n
+for i in range(c-1):
+    temp = n1*10 + n
+    l.append(temp)
+    n1 = temp
+
+print(sum(l))
+
+#参考答案：
+from functools import reduce
+Tn = 0
+Sn = []
+n = int(input('n = : '))  # n为次数
+a = int(input('a = : '))  # a为数字
+for count in range(n):
+    Tn = Tn + a
+    a = a * 10
+    Sn.append(Tn)
+
+# print(Sn)
+Sn = reduce(lambda x,y:x+y,Sn)
+print(Sn)
+
+注：
+1.reduce在python3非内建函数，需要从functools导入
+2.参考答案能包含第一个，而我的答案还要先加进去
+3.参考答案看着舒服，我的太丑了。。。
+4.参考答案很高级的用了reduce(func,iterable)函数，
 
 ```
 
