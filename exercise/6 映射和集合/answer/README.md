@@ -72,6 +72,16 @@ print({v:k for k,v in d.items()})
 >>>dict([('a',1),('b',2)])
 >>>{'a': 1, 'b': 2}
 
+# 按字典的key排序输出key value
+# key 无序输出
+dict1 = {'b':24,'a':10,'c':8}
+
+for k in dict1:
+    print(k,dict1[k])
+
+# key 有序输出
+for k in sorted(dict1):
+    print(k, dict1[k])
 ```
 
 # 练习二 集合的使用
