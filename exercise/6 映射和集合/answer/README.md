@@ -82,6 +82,19 @@ for k in dict1:
 # key 有序输出
 for k in sorted(dict1):
     print(k, dict1[k])
+
+# 根据字典的值找对对应的键
+dict1 = {'a':10,'b':24,'c':8}
+
+def reverse_lookup(dic,value1):
+    for key in dic:
+        if dict1[key] == value1:
+            return key
+    
+    # 没找到就抛个异常
+    raise LookupError()
+
+print(reverse_lookup(dict1,9))
 ```
 
 # 练习二 集合的使用
